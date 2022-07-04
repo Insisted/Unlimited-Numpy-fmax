@@ -20,6 +20,8 @@ class FMax(object):
         a.append(sorted(self.FILTER(i)))
       elif isinstance(i, (list, tuple, dict)):
         a.append(self.FILTER(i))
+      else:
+        a.append([])
     
     return a
 
@@ -30,5 +32,5 @@ if __name__ == '__main__':
   c = {4, 5, 3}
   d = {3: 10, 50: 4, 4:3}
 
-  fmax = FMax(a)
-  print(fmax.fmax(b, c, d, "6"))
+  obj = FMax(a)
+  print(obj.fmax(b, c, d, "6"))
