@@ -20,6 +20,8 @@ class FMax(object):
         a.append(sorted(self.FILTER(i)))
       elif isinstance(i, (list, tuple, dict, {}.keys().__class__, {}.values().__class__)):
         a.append(self.FILTER(i))
+      elif isinstance(i, {}.items().__class__):
+        a.append(self.FILTER(map(lambda x: x[1], args[2])))
       else:
         a.append([])
     
