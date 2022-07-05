@@ -12,13 +12,13 @@ class FMax(object):
     
     return list(map(max, longest))
 
-  def _filter(self, *args):
+  def _filter(self, args):
     a = []
     
     for i in args:
       if isinstance(i, set):
         a.append(sorted(self.FILTER(i)))
-      elif isinstance(i, (list, tuple, dict)):
+      elif isinstance(i, (list, tuple, dict, {}.keys().__class__, {}.values().__class__)):
         a.append(self.FILTER(i))
       else:
         a.append([])
@@ -32,5 +32,5 @@ if __name__ == '__main__':
   c = {4, 5, 3}
   d = {3: 10, 50: 4, 4:3}
 
-  obj = FMax(a)
-  print(obj.fmax(b, c, d, "6"))
+  fmax = FMax(a)
+  print(fmax.fmax(b, c, d, "6"))
