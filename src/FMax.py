@@ -7,7 +7,7 @@ class FMax(object):
     self.lst = self.FILTER(lst)
 
   def fmax(self, *args):
-    args = self._filter(*args)
+    args = self._filter(args)
     longest = lzip(self.lst, *args, fillvalue=0)
     
     return list(map(max, longest))
