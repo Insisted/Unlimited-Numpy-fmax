@@ -1,10 +1,10 @@
 from itertools import zip_longest as lzip
 
 class FMax(object):
-  FILTER = lambda self, y: filter(lambda x: isinstance(x, (int, float)), y)
+  _FILTER = lambda self, y: filter(lambda x: isinstance(x, (int, float)), y)
   
   def __init__(self, lst):
-    self.lst = self.FILTER(lst)
+    self.lst = self._FILTER(lst)
 
   def fmax(self, *args):
     args = self._filter(args)
@@ -17,11 +17,11 @@ class FMax(object):
     
     for i in args:
       if isinstance(i, set):
-        a.append(sorted(self.FILTER(i)))
+        a.append(sorted(self._FILTER(i)))
       elif isinstance(i, (list, tuple, dict, {}.keys().__class__, {}.values().__class__)):
-        a.append(self.FILTER(i))
+        a.append(self._FILTER(i))
       elif isinstance(i, {}.items().__class__):
-        a.append(self.FILTER(map(lambda x: x[1], args[2])))
+        a.append(self._FILTER(map(lambda x: x[1], args[2])))
       else:
         a.append([])
     
@@ -35,4 +35,4 @@ if __name__ == '__main__':
   d = {3: 10, 50: 4, 4:3}
 
   fmax = FMax(a)
-  print(fmax.fmax(b, c, d, "6"))
+  print(fmax.fmax(b, c, d, '6'))
