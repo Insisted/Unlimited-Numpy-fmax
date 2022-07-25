@@ -1,7 +1,7 @@
 from itertools import zip_longest as lzip
 
 class FMax(object):
-  _FILTER = lambda self, y: filter(lambda x: isinstance(x, (int, float)), y)
+  _FILTER = lambda self, y: map(lambda x: [0, x][isinstance(x, (int, float))], y)
   
   def __init__(self, lst):
     self.lst = self._FILTER(lst)
