@@ -21,7 +21,7 @@ class FMax(object):
       elif isinstance(i, (list, tuple, dict, {}.keys().__class__, {}.values().__class__)):
         arr.append(self._FILTER(i))
       elif isinstance(i, {}.items().__class__):
-        arr.append(self._FILTER(map(lambda x: x[1], args[2])))
+        arr.append(self._FILTER(map(lambda x: x[1], arg[2])))
       else:
         arr.append([])
     
