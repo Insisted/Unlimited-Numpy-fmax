@@ -7,25 +7,25 @@ class FMax(object):
     self.lst = self._FILTER(lst)
 
   def fmax(self, *args):
-    args = self._filter(args)
-    longest = lzip(self.lst, *args, fillvalue=0)
+    arg = self._filter(args)
+    longest = lzip(self.lst, *arg, fillvalue=0)
     
     return list(map(max, longest))
 
-  def _filter(self, args):
-    a = []
+  def _filter(self, arg):
+    arr = []
     
-    for i in args:
+    for i in arg:
       if isinstance(i, set):
-        a.append(sorted(self._FILTER(i)))
+        arr.append(sorted(self._FILTER(i)))
       elif isinstance(i, (list, tuple, dict, {}.keys().__class__, {}.values().__class__)):
-        a.append(self._FILTER(i))
+        arr.append(self._FILTER(i))
       elif isinstance(i, {}.items().__class__):
-        a.append(self._FILTER(map(lambda x: x[1], args[2])))
+        arr.append(self._FILTER(map(lambda x: x[1], args[2])))
       else:
-        a.append([])
+        arr.append([])
     
-    return a
+    return arr
 
 
 if __name__ == '__main__':
